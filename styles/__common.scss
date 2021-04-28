@@ -1,0 +1,7 @@
+$tablet: '1000px';
+$mobile: '800px';
+
+@mixin pseudo {
+    position: absolute;
+    content: '';
+}
