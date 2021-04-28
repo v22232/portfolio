@@ -1,9 +1,9 @@
 import style from '../styles/page/indexPage.module.scss';
 
-import { ReactComponent as IcoLogo } from '../public/icon/ico-logo.svg';
-import { ReactComponent as IcoDate } from '../public/icon/ico-date.svg';
-import { ReactComponent as IcoPart } from '../public/icon/ico-part.svg';
-import { ReactComponent as IcoName } from '../public/icon/ico-Name.svg';
+import { ReactComponent as IcoLogo } from 'public/icons/ico-logo.svg';
+import { ReactComponent as IcoDate } from 'public/icons/ico-date.svg';
+import { ReactComponent as IcoPart } from 'public/icons/ico-part.svg';
+import { ReactComponent as IcoName } from 'public/icons/ico-Name.svg';
 
 export default function indexPage() {
     return (
