@@ -1,31 +1,36 @@
 @import '../_color.scss';
 @import '../_common.scss';
 
-$layer-padding: 20px;
+$pauseSecond: 3s;
+$actions: top, date, subject, name, menu;
 
 .indexPage {
-    width: 100%;
-    height: 100%;
     background-color: $beige;
+    height: 100%;
+    width: 100%;
     .layer {
-        max-width: 800px;
+        font-family: 'Quantico', sans-serif;
         position: relative;
         width: 100%;
         height: 100%;
-        padding: 20px;
+        max-width: 800px;
         margin: 0 auto;
-        background-color: $beige;
-        overflow: hidden;
-        animation: shadow .5s linear forwards;
-
-        .part__title {
-            position: absolute;
-            width: calc(100% - 40px);
-            height: calc(100% - 40px);
-            top: $layer-padding;
-            left: $layer-padding;
-            right: $layer-padding;
-            bottom: $layer-padding;
+        padding: 20px;
+        @media only screen and (max-width: $tablet) {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        &::before {
+            @include pseudo;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 60px);
+            height: calc(100% - 60px);
             background-repeat: no-repeat;
             background-image: linear-gradient(
                     to right,
@@ -37,58 +42,156 @@ $layer-padding: 20px;
                 linear-gradient(to bottom, $black 100%, $black 100%);
             background-size: 0% 2px, 0px 0%, 0% 2px, 2px 0%;
             background-position: 100% 0, 0% 100%, 0% 100%, 0 0;
-            animation: line 3s 2.5s cubic-bezier(0, 0, 0, 0) forwards;
+            @media only screen and (min-width: $tablet) {
+                animation: line 3s 4.5s cubic-bezier(0, 0, 0, 0) forwards;
+            }
+        }
+        h2,
+        span {
+            padding: 0px 10px;
+            background-color: $beige;
+            position: absolute;
+        }
 
-            h1 {
-                position: absolute;
-                right: 0;
-                top: -10px;
+        .part__top {
+            font-size: 60px;
+            line-height: 50px;
+            letter-spacing: -3px;
+            right: 50%;
+            top: calc(100% - 50% - 100px);
+            transform: translate(50%, -50%);
+            @media only screen and (min-width: $tablet) {
+                animation: top 2s $pauseSecond ease forwards;
+            }
+        }
+        .part__left {
+            font-size: 20px;
+            line-height: 20px;
+            left: 50%;
+            top: calc(100% - 50% + 10px);
+            transform: translate(-50%, -50%);
+            transform-origin: top right;
+            @media only screen and (min-width: $tablet) {
+                animation: left-1 2s $pauseSecond ease forwards,
+                    rotate-90 0.6s 5.4s ease forwards;
+            }
+
+            & + .part__left {
+                top: auto;
+                bottom: 50%;
+                @media only screen and (min-width: $tablet) {
+                    animation: left-2 2s $pauseSecond ease forwards,
+                        rotate-90 0.6s 5.6s ease forwards;
+                }
+            }
+        }
+
+        .part__bottom {
+            font-size: 25px;
+            line-height: 20px;
+            right: 50%;
+            bottom: calc(100% - 50% - 100px);
+            transform: translate(50%, -50%);
+            @media only screen and (min-width: $tablet) {
+                animation: bottom 2s $pauseSecond ease forwards;
+            }
+        }
+
+        .part__menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            line-height: 100%;
+            li {
                 opacity: 0;
-                width: 140px;
-                padding: 0px 0px 0px 10px;
-                background-color: $beige;
-                animation: text 1.5s 1s linear forwards;
-
-                &::before {
-                    @include pseudo;
-                    bottom: 0;
-                    width: 80%;
-                    height: 2px;
-                    background-color: $black;
+                margin-top: 30px;
+                @media only screen and (max-width: $tablet) {
+                    opacity: 1;
+                    margin-top: 0px;
                 }
             }
 
-            .item__date {
-                position: absolute;
-                left: -65px;
-                top: 40%;
-                transform: rotate(270deg);
-                width: 140px;
-                padding: 0px 0px 0px 7px;
-                background-color: $beige;
-                animation: date 4s linear forwards;
+            li:first-of-type {
+                @media only screen and (min-width: $tablet) {
+                    animation: menu 0.5s 8s ease forwards;
+                }
+            }
+            li:nth-of-type(2) {
+                @media only screen and (min-width: $tablet) {
+                    animation: menu 0.5s 8.7s ease forwards;
+                }
             }
 
-            .item__part {
-                position: absolute;
-                left: -170px;
-                bottom: 20%;
-                width: 350px;
-                transform: rotate(270deg);
-                padding: 0px 5px 0px 7px;
-                background-color: $beige;
-                animation: date 4.5s linear forwards;
-            }
-
-            .item__name {
-                position: absolute;
-                bottom: 0;
-                opacity: 0;
-                right: 10px;
-                width: 100px;
-                animation: name 1.5s 1s linear forwards;
+            li + li {
+                margin-top: 5px;
             }
         }
+
+        @media only screen and (max-width: $tablet) {
+            .part__top,
+            .part__left,
+            .part__bottom,
+            .part__menu {
+                position: relative;
+                left: 0px !important;
+                top: 0px !important;
+                right: 0px !important;
+                bottom: 0px !important;
+                transform: translate(0, 100px);
+                opacity: 0;
+                + span {
+                    margin-top: 10px;
+                }
+            }
+            .part__menu {
+                margin-top: 30px;
+            }
+
+            @each $action in $actions {
+                $index: index($actions, $action);
+                .part__#{$action} {
+                    animation: mobile-top 0.1s*2*$index ease forwards;
+                }
+            }
+        }
+    }
+}
+
+@keyframes top {
+    100% {
+        top: 10px;
+        right: 0;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes left-1 {
+    100% {
+        top: 20%;
+        left: -135px;
+        transform: translate(0, 0%);
+    }
+}
+@keyframes left-2 {
+    100% {
+        bottom: 55%;
+        left: -355px;
+        transform: translate(0, 0%);
+    }
+}
+@keyframes bottom {
+    100% {
+        bottom: 40px;
+        right: 20px;
+        transform: translate(0, 0%);
+    }
+}
+
+@keyframes rotate-90 {
+    100% {
+        transform: rotate(-90deg);
     }
 }
 
@@ -110,73 +213,16 @@ $layer-padding: 20px;
     }
 }
 
-@keyframes text {
-    0% {
-        opacity: 0;
-        top: 50%;
-        right: 50%;
-        transform: translate(50%, -50%) scale(1.5);
-    }
-    10% {
-        opacity: 1;
-    }
-    70% {
-        top: 50%;
-        right: 50%;
-        opacity: 1;
-        transform: translate(50%, -50%) scale(1.5);
-    }
+@keyframes menu {
     100% {
-        right: 0;
-        top: -10px;
         opacity: 1;
-        transform: translate(0, 0) scale(1);
+        margin-top: 0px;
     }
 }
 
-@keyframes name {
-    0% {
-        opacity: 0;
-        bottom: 35%;
-        right: 50%;
-        transform: translate(50%, 50%);
-    }
-    10% {
-        opacity: 1;
-    }
-    70% {
-        bottom: 35%;
-        right: 50%;
-        opacity: 1;
-        transform: translate(50%, 50%);
-    }
-    100% {
-        right: 0;
-        bottom: 0px;
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-}
-
-@keyframes date {
-    0% {
-        opacity: 0;
-        transform: rotate(270deg) translateY(-100%);
-    }
-
-    90% {
-        opacity: 0;
-        transform: rotate(270deg) translateY(-100%);
-    }
-
+@keyframes mobile-top {
     100% {
         opacity: 1;
-        transform: rotate(270deg) translateY(0%);
-    }
-}
-
-@keyframes shadow {
-    100% {
-        box-shadow: 1px 0px 7px 0px grey;
+        transform: translate(0, 0px);
     }
 }
