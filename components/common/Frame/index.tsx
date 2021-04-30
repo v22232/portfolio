@@ -30,7 +30,9 @@ export default function Frame({
                 2017 TO 2021
             </span>
             <span className={cx([style.part__left, style.part__subject])}>
-                PUBLISHER & FRONT-END DEVELOPER
+                PUBLISHER
+                <br /> & <br />
+                FRONT-END DEVELOPER
             </span>
             <span className={cx([style.part__bottom, style.part__name])}>
                 Buhee Kim

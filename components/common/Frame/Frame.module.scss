@@ -109,6 +109,18 @@ $actions: top, date, subject, name, menu;
         transform: translate(50%, -50%);
     }
 
+    .part__subject{
+        br{
+            display: none;
+        }
+        @media only screen and (max-width: $mobile) {
+            text-align: center;
+            br{
+                display: none;
+            }
+        }
+    }
+
     &.mode__main {
         @media only screen and (min-width: $tablet) {
             &::before {

@@ -20,6 +20,7 @@ $actions: top, date, subject, name, menu;
         position: relative;
         opacity: 0;
         top: 30px;
+        color: $black;
         z-index: -1;
         @media only screen and (max-width: $tablet) {
             opacity: 1;
@@ -51,6 +52,7 @@ $actions: top, date, subject, name, menu;
         margin-top: 30px;
         transform: translate(0, 100px);
         opacity: 0;
+        animation: mobile-top 1s ease forwards;
     }
 }
 
@@ -59,5 +61,13 @@ $actions: top, date, subject, name, menu;
         z-index: 1;
         opacity: 1;
         top: 0px;
+    }
+}
+
+
+@keyframes mobile-top {
+    100% {
+        opacity: 1;
+        transform: translate(0, 0px);
     }
 }

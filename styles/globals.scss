@@ -1,5 +1,6 @@
-@import './__color.scss';
 @import './base.css';
+@import './__color.scss';
+@import './__common.scss';
 
 html {
     position: relative;
@@ -30,5 +31,8 @@ body {
     width: 100%;
     > div {
         align-self: stretch;
+    }
+    @media only screen and (max-width: $tablet) {
+        grid-template-columns: 100%;
     }
 }
