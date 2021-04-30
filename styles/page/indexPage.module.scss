@@ -5,224 +5,59 @@ $pauseSecond: 3s;
 $actions: top, date, subject, name, menu;
 
 .indexPage {
-    background-color: $beige;
-    height: 100%;
-    width: 100%;
-    .layer {
-        font-family: 'Quantico', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    line-height: 100%;
+
+    &.hide {
+        opacity: 0;
+    }
+
+    li {
         position: relative;
-        width: 100%;
-        height: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
+        opacity: 0;
+        top: 30px;
+        z-index: -1;
         @media only screen and (max-width: $tablet) {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        &::before {
-            @include pseudo;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100% - 60px);
-            height: calc(100% - 60px);
-            background-repeat: no-repeat;
-            background-image: linear-gradient(
-                    to right,
-                    $black 100%,
-                    $black 100%
-                ),
-                linear-gradient(to bottom, $black 100%, $black 100%),
-                linear-gradient(to right, $black 100%, $black 100%),
-                linear-gradient(to bottom, $black 100%, $black 100%);
-            background-size: 0% 2px, 0px 0%, 0% 2px, 2px 0%;
-            background-position: 100% 0, 0% 100%, 0% 100%, 0 0;
-            @media only screen and (min-width: $tablet) {
-                animation: line 3s 4.5s cubic-bezier(0, 0, 0, 0) forwards;
-            }
-        }
-        h2,
-        span {
-            padding: 0px 10px;
-            background-color: $beige;
-            position: absolute;
-        }
-
-        .part__top {
-            font-size: 60px;
-            line-height: 50px;
-            letter-spacing: -3px;
-            right: 50%;
-            top: calc(100% - 50% - 100px);
-            transform: translate(50%, -50%);
-            @media only screen and (min-width: $tablet) {
-                animation: top 2s $pauseSecond ease forwards;
-            }
-        }
-        .part__left {
-            font-size: 20px;
-            line-height: 20px;
-            left: 50%;
-            top: calc(100% - 50% + 10px);
-            transform: translate(-50%, -50%);
-            transform-origin: top right;
-            @media only screen and (min-width: $tablet) {
-                animation: left-1 2s $pauseSecond ease forwards,
-                    rotate-90 0.6s 5.4s ease forwards;
-            }
-
-            & + .part__left {
-                top: auto;
-                bottom: 50%;
-                @media only screen and (min-width: $tablet) {
-                    animation: left-2 2s $pauseSecond ease forwards,
-                        rotate-90 0.6s 5.6s ease forwards;
-                }
-            }
-        }
-
-        .part__bottom {
-            font-size: 25px;
-            line-height: 20px;
-            right: 50%;
-            bottom: calc(100% - 50% - 100px);
-            transform: translate(50%, -50%);
-            @media only screen and (min-width: $tablet) {
-                animation: bottom 2s $pauseSecond ease forwards;
-            }
-        }
-
-        .part__menu {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            line-height: 100%;
-            li {
-                opacity: 0;
-                margin-top: 30px;
-                @media only screen and (max-width: $tablet) {
-                    opacity: 1;
-                    margin-top: 0px;
-                }
-            }
-
-            li:first-of-type {
-                @media only screen and (min-width: $tablet) {
-                    animation: menu 0.5s 8s ease forwards;
-                }
-            }
-            li:nth-of-type(2) {
-                @media only screen and (min-width: $tablet) {
-                    animation: menu 0.5s 8.7s ease forwards;
-                }
-            }
-
-            li + li {
-                margin-top: 5px;
-            }
-        }
-
-        @media only screen and (max-width: $tablet) {
-            .part__top,
-            .part__left,
-            .part__bottom,
-            .part__menu {
-                position: relative;
-                left: 0px !important;
-                top: 0px !important;
-                right: 0px !important;
-                bottom: 0px !important;
-                transform: translate(0, 100px);
-                opacity: 0;
-                + span {
-                    margin-top: 10px;
-                }
-            }
-            .part__menu {
-                margin-top: 30px;
-            }
-
-            @each $action in $actions {
-                $index: index($actions, $action);
-                .part__#{$action} {
-                    animation: mobile-top 0.1s*2*$index ease forwards;
-                }
-            }
+            opacity: 1;
+            margin-top: 0px;
         }
     }
-}
 
-@keyframes top {
-    100% {
-        top: 10px;
-        right: 0;
-        transform: translate(0, 0);
+    li:first-of-type {
+        @media only screen and (min-width: $tablet) {
+            animation: menu 0.5s 8s ease forwards;
+        }
     }
-}
+    li:nth-of-type(2) {
+        @media only screen and (min-width: $tablet) {
+            animation: menu 0.5s 8.3s ease forwards;
+        }
+    }
 
-@keyframes left-1 {
-    100% {
-        top: 20%;
-        left: -135px;
-        transform: translate(0, 0%);
+    li + li {
+        margin-top: 5px;
     }
-}
-@keyframes left-2 {
-    100% {
-        bottom: 55%;
-        left: -355px;
-        transform: translate(0, 0%);
-    }
-}
-@keyframes bottom {
-    100% {
-        bottom: 40px;
-        right: 20px;
-        transform: translate(0, 0%);
-    }
-}
 
-@keyframes rotate-90 {
-    100% {
-        transform: rotate(-90deg);
-    }
-}
-
-@keyframes line {
-    0% {
-        background-size: 0% 2px, 0px 0%, 0% 2px, 2px 0%;
-    }
-    33% {
-        background-size: 100% 2px, 0px 0%, 0% 2px, 2px 0%;
-    }
-    66% {
-        background-size: 100% 2px, 0px 0%, 0% 2px, 2px 100%;
-    }
-    99% {
-        background-size: 100% 2px, 0px 0%, 100% 2px, 2px 100%;
-    }
-    100% {
-        background-size: 100% 2px, 0px 0%, 100% 2px, 2px 100%;
+    @media only screen and (max-width: $tablet) {
+        position: relative;
+        left: 0px !important;
+        top: 0px !important;
+        right: 0px !important;
+        bottom: 0px !important;
+        margin-top: 30px;
+        transform: translate(0, 100px);
+        opacity: 0;
     }
 }
 
 @keyframes menu {
     100% {
+        z-index: 1;
         opacity: 1;
-        margin-top: 0px;
-    }
-}
-
-@keyframes mobile-top {
-    100% {
-        opacity: 1;
-        transform: translate(0, 0px);
+        top: 0px;
     }
 }

@@ -1,0 +1,28 @@
+@import '../../_color.scss';
+@import '../../_common.scss';
+
+.Info {
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    -webkit-font-smoothing: auto;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    
+    .number {
+        position: relative;
+        font-size: 100px;
+        font-weight: 600;
+        line-height: 100%;
+    }
+
+    .title {
+        position: relative;
+        border-top: 5px solid $black;
+    }
+    .content {
+        position: relative;
+        border-top: 5px solid $black;
+    }
+}

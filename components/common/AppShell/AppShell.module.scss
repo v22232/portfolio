@@ -1,6 +1,10 @@
 @import '../../../styles/__color.scss';
+@import '../../../styles/__common.scss';
 
 .Appshell {
     height: 100%;
     width: 100%;
+    background-color: $beige;
 }
+
+

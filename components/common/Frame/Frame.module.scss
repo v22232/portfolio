@@ -1,0 +1,254 @@
+@import '../../../styles/__color.scss';
+@import '../../../styles/__common.scss';
+
+$pauseSecond: 3s;
+$actions: top, date, subject, name, menu;
+
+@mixin ani-top {
+    top: 10px;
+    right: 0;
+    transform: translate(0, 0);
+}
+
+@mixin ani-left-1 {
+    top: 20%;
+    left: -135px;
+    transform: translate(0, 0%);
+}
+
+@mixin ani-left-2 {
+    bottom: 55%;
+    left: -355px;
+    transform: translate(0, 0%);
+}
+
+@mixin ani-bot {
+    bottom: 40px;
+    right: 20px;
+    transform: translate(0, 0%);
+}
+
+@mixin ani-title {
+    background-size: 100% 2px, 0px 0%, 100% 2px, 2px 100%;
+}
+
+@mixin ani-left-rotate {
+    transform: rotate(-90deg);
+}
+
+.Frame {
+    font-family: 'Quantico', sans-serif;
+    position: relative;
+    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 200px 60px 100px;
+    transition: 1s ease;
+    word-break: keep-all;
+    @media only screen and (max-width: $tablet) {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    &.mode__sub {
+        max-width: 100%;
+    }
+    &::before {
+        @include pseudo;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 60px);
+        height: calc(100% - 60px);
+        background-repeat: no-repeat;
+        background-image: linear-gradient(to right, $black 100%, $black 100%),
+            linear-gradient(to bottom, $black 100%, $black 100%),
+            linear-gradient(to right, $black 100%, $black 100%),
+            linear-gradient(to bottom, $black 100%, $black 100%);
+        background-size: 0% 2px, 0px 0%, 0% 2px, 2px 0%;
+        background-position: 100% 0, 0% 100%, 0% 100%, 0 0;
+    }
+    h2,
+    span {
+        padding: 0px 10px;
+        background-color: $beige;
+        position: absolute;
+    }
+
+    .part__top {
+        font-size: 60px;
+        line-height: 50px;
+        letter-spacing: -3px;
+        right: 50%;
+        top: calc(100% - 50% - 100px);
+        transform: translate(50%, -50%);
+    }
+    .part__left {
+        font-size: 20px;
+        line-height: 20px;
+        left: 50%;
+        top: calc(100% - 50% + 10px);
+        transform: translate(-50%, -50%);
+        transform-origin: top right;
+
+        & + .part__left {
+            top: auto;
+            bottom: 50%;
+        }
+    }
+
+    .part__bottom {
+        font-size: 25px;
+        line-height: 20px;
+        right: 50%;
+        bottom: calc(100% - 50% - 100px);
+        transform: translate(50%, -50%);
+    }
+
+    &.mode__main {
+        @media only screen and (min-width: $tablet) {
+            &::before {
+                animation: line 3s 4.5s cubic-bezier(0, 0, 0, 0) forwards;
+            }
+            .part__top {
+                animation: top 2s $pauseSecond ease forwards;
+            }
+            .part__bottom {
+                animation: bottom 2s $pauseSecond ease forwards;
+            }
+            .part__left {
+                animation: left-1 2s $pauseSecond ease forwards,
+                    rotate-90 0.5s 5.68s ease forwards;
+
+                & + .part__left {
+                    animation: left-2 2s $pauseSecond ease forwards,
+                        rotate-90 0.5s 6s ease forwards;
+                }
+            }
+        }
+    }
+
+    &.mode__sub {
+        &::before {
+            @include ani-title;
+        }
+        .part__top {
+            @include ani-top;
+        }
+        .part__bottom {
+            @include ani-bot;
+        }
+        .part__date {
+            @include ani-left-1;
+        }
+        .part__subject {
+            @include ani-left-2;
+        }
+        .part__left {
+            @include ani-left-rotate;
+        }
+    }
+
+    @media only screen and (max-width: $tablet) {
+        .part__top,
+        .part__left,
+        .part__bottom {
+            position: relative;
+            left: 0px !important;
+            top: 0px !important;
+            right: 0px !important;
+            bottom: 0px !important;
+            transform: translate(0, 100px);
+            opacity: 0;
+            + span {
+                margin-top: 10px;
+            }
+        }
+
+        @each $action in $actions {
+            $index: index($actions, $action);
+            .part__#{$action} {
+                animation: mobile-top 0.1s * 2 * $index ease forwards;
+            }
+        }
+
+        &.mode__sub {
+            &::before {
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                background-image: none;
+                border:2px solid $black;
+            }
+            .part__left,
+            .part__bottom {
+                display: none;
+            }
+            .part__top {
+                position: absolute;
+                font-size: 30px;
+                line-height: 25px;
+                left: auto !important;
+                top: 5px !important;
+                right: 0px !important;
+                bottom: auto !important;
+            }
+        }
+    }
+}
+
+@keyframes top {
+    100% {
+        @include ani-top;
+    }
+}
+
+@keyframes left-1 {
+    100% {
+        @include ani-left-1;
+    }
+}
+@keyframes left-2 {
+    100% {
+        @include ani-left-2;
+    }
+}
+@keyframes bottom {
+    100% {
+        @include ani-bot;
+    }
+}
+
+@keyframes rotate-90 {
+    100% {
+        @include ani-left-rotate;
+    }
+}
+
+@keyframes line {
+    0% {
+        background-size: 0% 2px, 0px 0%, 0% 2px, 2px 0%;
+    }
+    33% {
+        background-size: 100% 2px, 0px 0%, 0% 2px, 2px 0%;
+    }
+    66% {
+        background-size: 100% 2px, 0px 0%, 0% 2px, 2px 100%;
+    }
+    99% {
+        background-size: 100% 2px, 0px 0%, 100% 2px, 2px 100%;
+    }
+    100% {
+        @include ani-title;
+    }
+}
+
+@keyframes mobile-top {
+    100% {
+        opacity: 1;
+        transform: translate(0, 0px);
+    }
+}
