@@ -1,14 +1,22 @@
 import { Frame } from '@components/common';
 import cx from 'classnames';
 import { useRouter } from 'next/dist/client/router';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 import style from '../styles/page/indexPage.module.scss';
+
+const canUseDOM: boolean = !!(
+    typeof window !== 'undefined' &&
+    typeof window.document !== 'undefined' &&
+    typeof window.document.createElement !== 'undefined'
+);
+
+const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
 
 function useWindowSize() {
     const [windowWidth, setWindowWidth] = useState<number>(0);
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         function updateWidthSize() {
             setWindowWidth(window.innerWidth);
         }
@@ -22,6 +30,8 @@ function useWindowSize() {
 
 export default function indexPage() {
     const [moveLink, setMoveLink] = useState(false);
+    const [moveHome, setMoveHome] = useState(false);
+
     const router = useRouter();
     const width = useWindowSize();
 
@@ -35,9 +45,12 @@ export default function indexPage() {
             router.push(link);
         }
     };
-
+    
     return (
-        <Frame mode='main' moveLink={moveLink}>
+        <Frame
+            mode={moveHome ? 'home' : 'main'}
+            moveLink={moveLink}
+        >
             <ul className={cx([style.indexPage, moveLink && style.hide])}>
                 <li>
                     <button onClick={() => _onClick('/info')}>01. INFO</button>

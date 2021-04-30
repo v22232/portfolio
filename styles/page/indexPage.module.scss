@@ -58,7 +58,6 @@ $actions: top, date, subject, name, menu;
 
 @keyframes menu {
     100% {
-        z-index: 1;
         opacity: 1;
         top: 0px;
     }

@@ -42,7 +42,7 @@ $actions: top, date, subject, name, menu;
     height: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 100px 200px 60px 100px;
+    padding: 60px;
     transition: 1s ease;
     word-break: keep-all;
     @media only screen and (max-width: $tablet) {
@@ -56,6 +56,37 @@ $actions: top, date, subject, name, menu;
     }
     &.mode__sub {
         max-width: 100%;
+    }
+    &.mode__home {
+        &::before,
+        .part__top,
+        .part__bottom,
+        .part__date,
+        .part__subject,
+        .part__left {
+            animation: none !important;
+        }
+        @media only screen and (min-width: $tablet) {
+            max-width: 800px;
+            &::before {
+                @include ani-title;
+            }
+            .part__top {
+                @include ani-top;
+            }
+            .part__bottom {
+                @include ani-bot;
+            }
+            .part__date {
+                @include ani-left-1;
+            }
+            .part__subject {
+                @include ani-left-2;
+            }
+            .part__left {
+                @include ani-left-rotate;
+            }
+        }
     }
     &::before {
         @include pseudo;
@@ -86,6 +117,7 @@ $actions: top, date, subject, name, menu;
         right: 50%;
         top: calc(100% - 50% - 100px);
         transform: translate(50%, -50%);
+        cursor: pointer;
     }
     .part__left {
         font-size: 20px;
@@ -109,13 +141,13 @@ $actions: top, date, subject, name, menu;
         transform: translate(50%, -50%);
     }
 
-    .part__subject{
-        br{
+    .part__subject {
+        br {
             display: none;
         }
         @media only screen and (max-width: $mobile) {
             text-align: center;
-            br{
+            br {
                 display: none;
             }
         }
@@ -193,7 +225,7 @@ $actions: top, date, subject, name, menu;
                 width: calc(100% - 20px);
                 height: calc(100% - 20px);
                 background-image: none;
-                border:2px solid $black;
+                border: 2px solid $black;
             }
             .part__left,
             .part__bottom {

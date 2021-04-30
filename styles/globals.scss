@@ -23,16 +23,3 @@ body {
     margin: 0 auto;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: minmax(30%, 200px) minmax(30%, 300px) 1fr;
-    place-content: space-between center;
-    height: 100%;
-    width: 100%;
-    > div {
-        align-self: stretch;
-    }
-    @media only screen and (max-width: $tablet) {
-        grid-template-columns: 100%;
-    }
-}

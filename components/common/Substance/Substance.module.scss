@@ -1,0 +1,55 @@
+@import '../../../styles/_color.scss';
+@import '../../../styles/_common.scss';
+
+.Substance {
+    font-family: 'Noto Sans KR', sans-serif;
+    width: calc(100% - 120px);
+    height: 100%;
+    padding: 20px;
+    overflow: scroll;
+    -webkit-font-smoothing: auto;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+    .layer {
+        display: grid;
+        grid-template-columns: minmax(30%, 200px) minmax(30%, 300px) 1fr;
+        place-content: space-between center;
+        height: 100%;
+        width: 100%;
+        align-content: stretch;
+        > div {
+            align-self: stretch;
+        }
+        &:nth-of-type(2) {
+            position: sticky;
+        }
+        @media only screen and (max-width: $tablet) {
+            grid-template-columns: 100%;
+        }
+    }
+
+    .number {
+        position: relative;
+        font-size: 100px;
+        font-weight: 600;
+        line-height: 100%;
+        top: 20%;
+
+    }
+
+    .title {
+        position: relative;
+        border-top: 5px solid $black;
+        top: 10%;
+    }
+    .content {
+        position: relative;
+        border-top: 5px solid $black;
+        top: 10%;
+    }
+
+    @media only screen and (max-width: $tablet) {
+        width: 100%;
+    }
+}
