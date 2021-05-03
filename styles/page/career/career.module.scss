@@ -1,0 +1,55 @@
+@import '../../_color.scss';
+@import '../../_common.scss';
+
+.career__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 0px;
+    @media only screen and (max-width: $mobile) {
+        grid-template-columns: 1fr;
+    }
+    li {
+        padding-left: 0px;
+        margin-top: 0px !important;
+        button {
+            position: relative;
+            width: 100%;
+            height: auto;
+            transition: 0.2s ease;
+            filter: grayscale(100%);
+            span {
+                position: absolute;
+                display: block;
+                top: 50%;
+                left: 50%;
+                color: $gray;
+                padding: 5px 5px;
+                font-size: 12px;
+                opacity: 0;
+                background-color: rgb(0 0 0 / 80%);
+                transform-origin: center;
+                transform: translate(-50%, -50%) rotateX(90deg);
+                transform-style: preserve-3d;
+                transition: all 0.35s;
+                z-index: 2;
+                @media only screen and (max-width: $mobile) {
+                    padding: 5px;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            &:hover,
+            &:focus {
+                filter: grayscale(0%);
+                span {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) rotateX(0deg);
+                }
+            }
+        }
+    }
+}

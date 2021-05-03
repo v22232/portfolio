@@ -57,37 +57,7 @@ $actions: top, date, subject, name, menu;
     &.mode__sub {
         max-width: 100%;
     }
-    &.mode__home {
-        &::before,
-        .part__top,
-        .part__bottom,
-        .part__date,
-        .part__subject,
-        .part__left {
-            animation: none !important;
-        }
-        @media only screen and (min-width: $tablet) {
-            max-width: 800px;
-            &::before {
-                @include ani-title;
-            }
-            .part__top {
-                @include ani-top;
-            }
-            .part__bottom {
-                @include ani-bot;
-            }
-            .part__date {
-                @include ani-left-1;
-            }
-            .part__subject {
-                @include ani-left-2;
-            }
-            .part__left {
-                @include ani-left-rotate;
-            }
-        }
-    }
+
     &::before {
         @include pseudo;
         left: 50%;
@@ -104,7 +74,7 @@ $actions: top, date, subject, name, menu;
         background-position: 100% 0, 0% 100%, 0% 100%, 0 0;
     }
     h2,
-    span {
+    > span {
         padding: 0px 10px;
         background-color: $beige;
         position: absolute;
@@ -158,14 +128,14 @@ $actions: top, date, subject, name, menu;
         position: relative;
         width: 100%;
         height: 100%;
-        top: 100px;
+        top: 20px;
         opacity: 0;
-        animation: top 1s ease forwards;
+        animation: top 0.7s ease forwards;
     }
 
     .hide {
         transition: 0.2s ease;
-        opacity: 0!important;
+        opacity: 0 !important;
     }
 
     &.mode__main {
@@ -212,6 +182,38 @@ $actions: top, date, subject, name, menu;
         }
     }
 
+    &.mode__home {
+        &::before,
+        .part__top,
+        .part__bottom,
+        .part__date,
+        .part__subject,
+        .part__left {
+            animation: none;
+        }
+        @media only screen and (min-width: $tablet) {
+            max-width: 800px;
+            &::before {
+                @include ani-title;
+            }
+            .part__top {
+                @include ani-top;
+            }
+            .part__bottom {
+                @include ani-bot;
+            }
+            .part__date {
+                @include ani-left-1;
+            }
+            .part__subject {
+                @include ani-left-2;
+            }
+            .part__left {
+                @include ani-left-rotate;
+            }
+        }
+    }
+
     @media only screen and (max-width: $tablet) {
         .part__top,
         .part__left,
@@ -226,6 +228,11 @@ $actions: top, date, subject, name, menu;
             + span {
                 margin-top: 10px;
             }
+        }
+
+        .part__contents.center {
+            height: auto;
+            width: auto;
         }
 
         @each $action in $actions {
@@ -254,6 +261,19 @@ $actions: top, date, subject, name, menu;
                 top: 5px !important;
                 right: 0px !important;
                 bottom: auto !important;
+            }
+        }
+
+        &.mode__home {
+            .part__contents.center {
+                height: 100px;
+                margin-top: 0px;
+            }
+            .part__top,
+            .part__left,
+            .part__bottom {
+                opacity: 1;
+                transform: translate(0, 0px);
             }
         }
     }

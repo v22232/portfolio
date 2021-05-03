@@ -11,7 +11,10 @@ export default function Substance({ list }: Prop) {
             <div className={style.number}>
                 <span>0{idx + 1}</span>
             </div>
-            <div className={style.title}>{list.title}</div>
+            <div className={style.title}>
+                {list.title}
+                {list.subtitle && <p>{list.subtitle}</p>}
+            </div>
             <div className={style.content}>{list.content}</div>
         </div>
     );

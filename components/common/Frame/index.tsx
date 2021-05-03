@@ -4,6 +4,7 @@ import cx from 'classnames';
 import style from './Frame.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
+import useWindowSize from '@utils/windowSize';
 
 type Prop = {
     mode: 'main' | 'sub' | 'home';
@@ -17,6 +18,8 @@ export default function Frame({
 }: PropsWithChildren<Prop>) {
     const [moveSub, setMoveSub] = useState(false);
 
+    const width = useWindowSize();
+
     const router = useRouter();
 
     const _onClickHome = () => {
@@ -25,10 +28,15 @@ export default function Frame({
         if (router.pathname === '/') {
             return;
         }
-        setMoveSub(true);
-        setTimeout(() => {
+
+        if (width > 1000) {
+            setMoveSub(true);
+            setTimeout(() => {
+                router.push('/?home=true', '/');
+            }, 1200);
+        } else {
             router.push('/?home=true', '/');
-        }, 1200);
+        }
     };
 
     return (
@@ -59,7 +67,13 @@ export default function Frame({
             <span className={cx([style.part__bottom, style.part__name])}>
                 Buhee Kim
             </span>
-            <div className={cx([style.part__contents, moveSub && style.hide])}>
+            <div
+                className={cx([
+                    style.part__contents,
+                    moveSub && style.hide,
+                    (mode === 'main' || mode === 'home') && style.center,
+                ])}
+            >
                 {children}
             </div>
         </div>

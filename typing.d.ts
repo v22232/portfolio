@@ -11,5 +11,6 @@ declare module '*.svg' {
 
 declare type listType = {
     title?: string;
-    content?: any;
+    subtitle?: React.HTMLAttributes;
+    content?: React.HTMLAttributes;
 };

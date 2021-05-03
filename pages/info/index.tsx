@@ -1,29 +1,34 @@
 import { Frame, Substance } from '@components/common';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import style from '../../styles/page/info/info.module.scss';
 
 const menus: listType[] = [
     {
-        title: 'AAAA',
-        content: <div>BBBB</div>,
-    },
-    {
-        title: 'CCCC',
-        content: <div>CCCC</div>,
-    },
-    {
-        title: 'DDDD',
-        content: <div>DDDD</div>,
-    },
-    {
-        title: 'EEEE',
-        content: <div>EEEE</div>,
-    },
-    {
-        title: 'FFFF',
-        content: <div>FFFF</div>,
+        title: 'Skills',
+        content: (
+            <div>
+                <ul>
+                    <li>
+                        <span>Design</span>photoshop
+                    </li>
+                    <li>
+                        <span>Publshing</span>css, scss, sass
+                    </li>
+                    <li>
+                        <span>Front-end</span>javascript, jQuery, typescript,
+                        React.js
+                    </li>
+                    <li>
+                        <span>Back-end</span>node.js/express, MySql
+                    </li>
+                    <li>
+                        <span>Etc</span>웹 접근성/표준성, 크로스 브라우징, 웹
+                        반응형
+                    </li>
+                </ul>
+            </div>
+        ),
     },
 ];
 
