@@ -9,8 +9,12 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <Head>
-            <meta charSet='UTF-8' />
-                <link rel='icon' type='image/x-icon' href='/icons/ico-logo.png' />
+                <meta charSet='UTF-8' />
+                <link
+                    rel='icon'
+                    type='image/x-icon'
+                    href='/icons/ico-logo.png'
+                />
 
                 <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
                 <meta
@@ -21,8 +25,11 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta property='og:type' content='website' />
                 <meta property='og:title' content='portfolio' />
                 <meta property='og:description' content="Vuhee's portfolio" />
-                <meta property='og:image' content='/icons/ico-logo.png' />
-                <meta property='og:url' content='https://vuhee.vercel.app' />
+                <meta property='og:image' content='/images/sky.jpg' />
+                <meta
+                    property='og:url'
+                    content='https://v-portfolio.vercel.app/'
+                />
 
                 <title>Vuhee's portfolio</title>
 

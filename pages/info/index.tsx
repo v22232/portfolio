@@ -7,7 +7,7 @@ const menus: listType[] = [
     {
         title: 'Skills',
         content: (
-            <div>
+            <div className={style.infoList}>
                 <ul>
                     <li>
                         <span>Design</span>photoshop
