@@ -12,10 +12,6 @@ $actions: top, date, subject, name, menu;
     font-size: 20px;
     line-height: 100%;
 
-    &.hide {
-        opacity: 0;
-    }
-
     li {
         position: relative;
         opacity: 0;
@@ -43,6 +39,23 @@ $actions: top, date, subject, name, menu;
         margin-top: 5px;
     }
 
+    &.hide {
+        display: none;
+    }
+
+    &.mode__home {
+        li:first-of-type {
+            @media only screen and (min-width: $tablet) {
+                animation: menu 0.5s ease forwards;
+            }
+        }
+        li:nth-of-type(2) {
+            @media only screen and (min-width: $tablet) {
+                animation: menu 0.5s 0.2s ease forwards;
+            }
+        }
+    }
+
     @media only screen and (max-width: $tablet) {
         position: relative;
         left: 0px !important;
@@ -62,7 +75,6 @@ $actions: top, date, subject, name, menu;
         top: 0px;
     }
 }
-
 
 @keyframes mobile-top {
     100% {

@@ -29,7 +29,7 @@ function useWindowSize() {
 }
 
 export default function indexPage() {
-    const [moveLink, setMoveLink] = useState(false);
+    const [moveSub, setMoveSub] = useState(false);
     const [moveHome, setMoveHome] = useState(false);
 
     const router = useRouter();
@@ -37,7 +37,7 @@ export default function indexPage() {
 
     const _onClick = (link: string) => {
         if (width > 1000) {
-            setMoveLink(true);
+            setMoveSub(true);
             setTimeout(() => {
                 router.push(link);
             }, 1200);
@@ -45,13 +45,20 @@ export default function indexPage() {
             router.push(link);
         }
     };
-    
+
+    useEffect(() => {
+        router.query.home && setMoveHome(true);
+    }, [router.query.home]);
+
     return (
-        <Frame
-            mode={moveHome ? 'home' : 'main'}
-            moveLink={moveLink}
-        >
-            <ul className={cx([style.indexPage, moveLink && style.hide])}>
+        <Frame mode={moveSub ? 'sub' : moveHome ? 'home' : 'main'}>
+            <ul
+                className={cx([
+                    style.indexPage,
+                    moveHome && style.mode__home,
+                    moveSub && style.hide,
+                ])}
+            >
                 <li>
                     <button onClick={() => _onClick('/info')}>01. INFO</button>
                 </li>

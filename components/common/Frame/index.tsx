@@ -7,22 +7,27 @@ import { useRouter } from 'next/dist/client/router';
 
 type Prop = {
     mode: 'main' | 'sub' | 'home';
-    moveLink?: boolean;
+    onClickMoveHome?: (state: boolean) => void;
 };
 
 export default function Frame({
     mode,
-    moveLink,
+    onClickMoveHome,
     children,
 }: PropsWithChildren<Prop>) {
-    const [moveHome, setMoveHome] = useState(false);
+    const [moveSub, setMoveSub] = useState(false);
 
     const router = useRouter();
 
     const _onClickHome = () => {
-        setMoveHome(true);
+        onClickMoveHome && onClickMoveHome(true);
+
+        if (router.pathname === '/') {
+            return;
+        }
+        setMoveSub(true);
         setTimeout(() => {
-            router.replace('/');
+            router.push('/?home=true', '/');
         }, 1200);
     };
 
@@ -30,10 +35,11 @@ export default function Frame({
         <div
             className={cx([
                 style.Frame,
-                mode === 'main' ? style.mode__main : style.mode__sub,
-                moveLink && style.mode__sub,
-                moveHome && style.mode__home,
-                mode === 'home' && style.mode__home,
+                mode === 'main'
+                    ? style.mode__main
+                    : mode === 'home'
+                    ? style.mode__home
+                    : style.mode__sub,
             ])}
         >
             <h2 className={style.part__top} onClick={_onClickHome}>
@@ -53,7 +59,9 @@ export default function Frame({
             <span className={cx([style.part__bottom, style.part__name])}>
                 Buhee Kim
             </span>
-            {children}
+            <div className={cx([style.part__contents, moveSub && style.hide])}>
+                {children}
+            </div>
         </div>
     );
 }
@@ -61,4 +69,5 @@ export default function Frame({
 Frame.defaultProps = {
     mode: 'sub',
     moveLink: false,
+    moveHome: false,
 };

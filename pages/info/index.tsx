@@ -1,5 +1,6 @@
 import { Frame, Substance } from '@components/common';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import style from '../../styles/page/info/info.module.scss';
 
@@ -27,8 +28,17 @@ const menus: listType[] = [
 ];
 
 export default function info() {
+    const [moveHome, setMoveHome] = useState(false);
+
+    const _onClickMoveHome = (state: boolean) => {
+        setMoveHome(state);
+    };
+
     return (
-        <Frame mode='sub'>
+        <Frame
+            mode={!moveHome ? 'sub' : 'home'}
+            onClickMoveHome={_onClickMoveHome}
+        >
             <Substance list={menus} />
         </Frame>
     );

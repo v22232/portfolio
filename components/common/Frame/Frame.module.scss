@@ -118,6 +118,7 @@ $actions: top, date, subject, name, menu;
         top: calc(100% - 50% - 100px);
         transform: translate(50%, -50%);
         cursor: pointer;
+        z-index: 99;
     }
     .part__left {
         font-size: 20px;
@@ -151,6 +152,20 @@ $actions: top, date, subject, name, menu;
                 display: none;
             }
         }
+    }
+
+    .part__contents {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 100px;
+        opacity: 0;
+        animation: top 1s ease forwards;
+    }
+
+    .hide {
+        transition: 0.2s ease;
+        opacity: 0!important;
     }
 
     &.mode__main {
@@ -246,6 +261,7 @@ $actions: top, date, subject, name, menu;
 
 @keyframes top {
     100% {
+        opacity: 1;
         @include ani-top;
     }
 }
