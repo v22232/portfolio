@@ -42,7 +42,7 @@ $actions: top, date, subject, name, menu;
     height: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 60px;
+    padding: 30px;
     transition: 1s ease;
     word-break: keep-all;
     @media only screen and (max-width: $tablet) {
@@ -78,6 +78,7 @@ $actions: top, date, subject, name, menu;
         padding: 0px 10px;
         background-color: $beige;
         position: absolute;
+        z-index: 99;
     }
 
     .part__top {
@@ -129,8 +130,45 @@ $actions: top, date, subject, name, menu;
         width: 100%;
         height: 100%;
         top: 20px;
+        padding: 2px 30px;
         opacity: 0;
+        margin-top: -10px;
         animation: top 0.7s ease forwards;
+        &::before {
+            @include pseudo;
+            left: 2px;
+            top: 2px;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(
+                to top,
+                rgba(199, 187, 168, 0) 10%,
+                rgba(199, 187, 168, 0.25) 25%,
+                rgba(199, 187, 168, 0.5) 50%,
+                rgba(199, 187, 168, 0.75) 75%,
+                rgba(199, 187, 168, 1) 100%
+            );
+            background-size: cover;
+            z-index: 91
+        }
+        &::after {
+            @include pseudo;
+            top: auto;
+            left: 2px;
+            bottom: 2px;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(
+                to bottom,
+                rgba(199, 187, 168, 0) 10%,
+                rgba(199, 187, 168, 0.25) 25%,
+                rgba(199, 187, 168, 0.5) 50%,
+                rgba(199, 187, 168, 0.75) 75%,
+                rgba(199, 187, 168, 1) 100%
+            );
+            background-size: cover;
+            z-index: 1;
+        }
     }
 
     .hide {
