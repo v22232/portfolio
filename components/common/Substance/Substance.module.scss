@@ -25,6 +25,14 @@
         @media only screen and (max-width: $tablet) {
             grid-template-columns: 100%;
         }
+
+        &.heightAuto {
+            height: auto;
+            margin-top: 100px;
+            + div {
+                margin-bottom: 100px;
+            }
+        }
     }
 
     .number {
@@ -32,6 +40,7 @@
         font-size: 100px;
         font-weight: 600;
         line-height: 100%;
+        height: calc(100% - 10%);
         top: 20%;
     }
 
@@ -39,6 +48,7 @@
         position: relative;
         border-top: 5px solid $black;
         top: 10%;
+        height: calc(100% - 10%);
         padding-top: 20px;
         font-weight: 600;
         font-size: 35px;
@@ -57,6 +67,7 @@
         position: relative;
         border-top: 5px solid $black;
         top: 10%;
+        height: calc(100% - 10%);
         padding-top: 15px;
         font-size: 15px;
         word-break: keep-all;
@@ -130,7 +141,7 @@
         .layer {
             height: auto;
             grid-template-rows: 40px auto 1fr;
-            .number{
+            .number {
                 font-size: 30px;
             }
             .title {
@@ -145,7 +156,7 @@
                 }
             }
             .content {
-                padding:10px 0px;
+                padding: 10px 0px;
                 ul {
                     li {
                         display: flex;

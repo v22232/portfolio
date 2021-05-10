@@ -2,7 +2,7 @@ import { PropsWithChildren, useEffect, useState } from 'react';
 import cx from 'classnames';
 
 import style from './Frame.module.scss';
-import Link from 'next/link';
+
 import { useRouter } from 'next/dist/client/router';
 import useWindowSize from '@utils/windowSize';
 
@@ -39,6 +39,10 @@ export default function Frame({
         }
     };
 
+    const _onClick = (link: string) => {
+        router.push(link);
+    };
+
     return (
         <div
             className={cx([
@@ -55,7 +59,20 @@ export default function Frame({
                 <br />
                 FOLIO
             </h2>
-
+            <div className={style.part__navi}>
+                <ul>
+                    <li>
+                        <button onClick={() => _onClick('/info')}>
+                            01. INTRO{' '}
+                        </button>
+                    </li>
+                    <li>
+                        <button onClick={() => _onClick('/project')}>
+                            02. PROJECT
+                        </button>
+                    </li>
+                </ul>
+            </div>
             <span className={cx([style.part__left, style.part__date])}>
                 2017 TO 2021
             </span>

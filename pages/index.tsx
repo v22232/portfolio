@@ -47,8 +47,8 @@ export default function indexPage() {
                     <button onClick={() => _onClick('/info')}>01. INFO</button>
                 </li>
                 <li>
-                    <button onClick={() => _onClick('/career')}>
-                        02. CAREER
+                    <button onClick={() => _onClick('/project')}>
+                        02. PROJECT
                     </button>
                 </li>
             </ul>

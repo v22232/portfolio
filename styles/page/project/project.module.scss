@@ -3,14 +3,16 @@
 
 .career__list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 10px 0px;
+    grid-template-columns: repeat(2, 1fr);
+
     @media only screen and (max-width: $mobile) {
         grid-template-columns: 1fr;
     }
     li {
         padding-left: 0px;
         margin-top: 0px !important;
+        place-self: start center;
         button {
             position: relative;
             width: 100%;
@@ -39,7 +41,6 @@
 
             img {
                 position: relative;
-                width: 100%;
                 height: auto;
                 z-index: -10;
             }

@@ -91,6 +91,34 @@ $actions: top, date, subject, name, menu;
         cursor: pointer;
         z-index: 99;
     }
+    .part__navi {
+        position: absolute;
+        right: 20px;
+        top: 130px;
+        font-size: 20px;
+        line-height: 100%;
+        z-index: 99;
+        li {
+            + li {
+                margin-top: 5px;
+            }
+        }
+        @media only screen and (max-width: $tablet) {
+            font-size: 15px;
+            top: 15px;
+            right: auto;
+            left: 20px;
+            ul {
+                display: inline-flex;
+                li {
+                    ~ li {
+                        margin-top: 0px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
     .part__left {
         font-size: 20px;
         line-height: 20px;
@@ -149,7 +177,7 @@ $actions: top, date, subject, name, menu;
                 rgba(199, 187, 168, 1) 100%
             );
             background-size: cover;
-            z-index: 91
+            z-index: 91;
         }
         &::after {
             @include pseudo;
@@ -174,6 +202,12 @@ $actions: top, date, subject, name, menu;
     .hide {
         transition: 0.2s ease;
         opacity: 0 !important;
+    }
+
+    .move__right {
+        transition: 0.2s ease;
+        opacity: 0 !important;
+        animation: right 0.2s $pauseSecond ease;
     }
 
     &.mode__main {
