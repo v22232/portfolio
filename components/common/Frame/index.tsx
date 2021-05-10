@@ -59,20 +59,23 @@ export default function Frame({
                 <br />
                 FOLIO
             </h2>
-            <div className={style.part__navi}>
-                <ul>
-                    <li>
-                        <button onClick={() => _onClick('/info')}>
-                            01. INTRO{' '}
-                        </button>
-                    </li>
-                    <li>
-                        <button onClick={() => _onClick('/project')}>
-                            02. PROJECT
-                        </button>
-                    </li>
-                </ul>
-            </div>
+            {mode === 'sub' && (
+                <div className={style.part__navi}>
+                    <ul>
+                        <li>
+                            <button onClick={() => _onClick('/info')}>
+                                01. INTRO{' '}
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => _onClick('/project')}>
+                                02. PROJECT
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            )}
+
             <span className={cx([style.part__left, style.part__date])}>
                 2017 TO 2021
             </span>
