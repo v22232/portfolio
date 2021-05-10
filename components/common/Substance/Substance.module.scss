@@ -108,6 +108,31 @@
         }
     }
 
+    .lender__list {
+        display: grid;
+        gap: 10px 10px;
+        grid-template-columns: repeat(2, 1fr);
+        @media only screen and (max-width: $mobile) {
+            grid-template-columns: 1fr;
+        }
+        li {
+            width: 100%;
+            height: 127.45px;
+            margin-top: 0px !important;
+            place-self: start center;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.1);
+            background: gradient(linear,left top,right top,from(#222),to(#222),color-stop(.5,#fff));
+            background-size: 125px 100%;
+            animation-name: shimmer;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-color: #222;
+        }
+    }
+
     @media only screen and (max-width: $tablet) {
         width: 100%;
 
@@ -176,3 +201,12 @@
         }
     }
 }
+
+@keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+    100% {
+      background-position: top right;
+    }
+  }

@@ -1,5 +1,5 @@
 import { Frame, Substance } from '@components/common';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import style from '../../styles/page/info/info.module.scss';
 
