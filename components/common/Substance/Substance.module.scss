@@ -28,7 +28,7 @@ $box-width: 100%;
 
     .layer {
         display: grid;
-        grid-template-columns: minmax(30%, 200px) minmax(30%, 200px) 1fr;
+        grid-template-columns: minmax(15%, 200px) minmax(25%, 200px) 1fr;
         place-content: space-between center;
         height: 100%;
         width: 100%;
@@ -67,8 +67,8 @@ $box-width: 100%;
         font-size: 100px;
         font-weight: 600;
         line-height: 100%;
-        height: calc(100% - 10%);
-        top: 20%;
+        height: calc(100% - 30%);
+        top: 30%;
     }
 
     .title {
@@ -247,6 +247,7 @@ $box-width: 100%;
             grid-template-rows: 40px auto 1fr;
             .number {
                 font-size: 30px;
+                top:5px;
             }
             .title {
                 flex-direction: column;

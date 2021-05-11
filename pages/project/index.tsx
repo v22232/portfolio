@@ -105,18 +105,6 @@ const menus: listType[] = [
                     <button
                         onClick={() =>
                             onClickPath(
-                                'http://moneytrainer.com/sub/event/finish/page1'
-                            )
-                        }
-                    >
-                        <img src='/images/money-03.png' />
-                        <span>리스트-스크롤페이징</span>
-                    </button>
-                </li>
-                <li>
-                    <button
-                        onClick={() =>
-                            onClickPath(
                                 'http://moneytrainer.com/sub/board/all/page1'
                             )
                         }
@@ -129,12 +117,6 @@ const menus: listType[] = [
                     <button onClick={() => onClickPath('/images/money-05.png')}>
                         <img src='/images/money-05.png' />
                         <span>관리자-등록-이벤트</span>
-                    </button>
-                </li>
-                <li>
-                    <button onClick={() => onClickPath('/images/money-06.png')}>
-                        <img src='/images/money-06.png' />
-                        <span>관리자-등록-게시판</span>
                     </button>
                 </li>
                 <li>
@@ -237,30 +219,6 @@ const menus: listType[] = [
                         <span>서울 동작 도서관</span>
                     </button>
                 </li>
-                <li>
-                    <button
-                        onClick={() =>
-                            onClickPath(
-                                'https://djlib.sen.go.kr/djlib/index.do'
-                            )
-                        }
-                    >
-                        <img src='/images/lib-08.png' />
-                        <span>서울 동작 도서관</span>
-                    </button>
-                </li>
-                <li>
-                    <button
-                        onClick={() =>
-                            onClickPath(
-                                'https://gdlib.sen.go.kr/gdlib/index.do'
-                            )
-                        }
-                    >
-                        <img src='/images/lib-09.png' />
-                        <span>서울 강동 도서관</span>
-                    </button>
-                </li>
             </ul>
         ),
     },
@@ -333,7 +291,7 @@ const menus: listType[] = [
                                 )
                             }
                         >
-                            <img src='/images/lib-ic-04.png' />
+                            <img src='/images/lib-ic-05.png' />
                             <span>인천 중앙도서관</span>
                         </button>
                     </li>
@@ -345,7 +303,7 @@ const menus: listType[] = [
                                 )
                             }
                         >
-                            <img src='/images/lib-ic-04.png' />
+                            <img src='/images/lib-ic-06.png' />
                             <span>인천 주안도서관</span>
                         </button>
                     </li>
@@ -430,26 +388,6 @@ const menus: listType[] = [
                         >
                             <img src='/images/lib-ks-06.png' />
                             <span>경상북도 영덕 도서관</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            onClick={() =>
-                                onClickPath('http://www.gbelib.kr/sj/index.do')
-                            }
-                        >
-                            <img src='/images/lib-ks-07.png' />
-                            <span>경상북도 상주 도서관</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            onClick={() =>
-                                onClickPath('http://www.gbelib.kr/yj/index.do')
-                            }
-                        >
-                            <img src='/images/lib-ks-08.png' />
-                            <span>경상북도 영주 선비 도서관</span>
                         </button>
                     </li>
                 </ul>
@@ -623,10 +561,11 @@ const menus: listType[] = [
                     <li>
                         대규모 사이트 위주의 작업을 해왔으며 전자정부프레임워크
                         기반의 프로젝트부터 소규모 사이트까지 많은 경험으로
+                        <br />
                         디자인, 개발자 등 직군에 상관없이 원활한 소통으로 협업이
-                        가능하며 디자인에 필요한 기본 툴인 photoshop,
-                        illustrator이 사용가능하고 협업에 필요한 git 사용이
-                        가능합니다.
+                        가능하며 <br />
+                        디자인에 필요한 기본 툴인 photoshop, illustrator이
+                        사용가능하고 협업에 필요한 git 사용이 가능합니다.
                     </li>
                 </ul>
             </div>
