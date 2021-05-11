@@ -9,28 +9,6 @@ function onClickPath(url: string) {
 
 const menus: listType[] = [
     {
-        title: 'ETC',
-        content: (
-            <div>
-                <ul>
-                    <li>
-                        <span>그 외 작업 비인가 사이트</span>
-                        교육넷, 한국전력공사 등 공공 기관 위주의 단기 프로젝트
-                        작업.
-                    </li>
-                    <li>
-                        대규모 사이트 위주의 작업을 해왔으며
-                        전자정부프레임워크 기반의 프로벡트 부터 소규모 사이트까지 많은 경험으로
-                        디자인, 개발자 등 직군에 상관없이 원활한 소통으로 협업이
-                        가능하며 디자인에 필요한 기본 툴인 photoshop,
-                        illustrator이 사용가능하고 협업에 필요한 git 사용이
-                        가능합니다.
-                    </li>
-                </ul>
-            </div>
-        ),
-    },
-    {
         title: '영플립',
         subtitle: (
             <>
@@ -627,6 +605,28 @@ const menus: listType[] = [
                             <img src='/images/bpm-04.png' />
                             <span>서브페이지-정적페이지</span>
                         </button>
+                    </li>
+                </ul>
+            </div>
+        ),
+    },
+    {
+        title: 'ETC',
+        content: (
+            <div>
+                <ul>
+                    <li>
+                        <span>그 외 작업 비인가 사이트</span>
+                        교육넷, 한국전력공사 등 공공 기관 위주의 단기 프로젝트
+                        작업.
+                    </li>
+                    <li>
+                        대규모 사이트 위주의 작업을 해왔으며 전자정부프레임워크
+                        기반의 프로벡트 부터 소규모 사이트까지 많은 경험으로
+                        디자인, 개발자 등 직군에 상관없이 원활한 소통으로 협업이
+                        가능하며 디자인에 필요한 기본 툴인 photoshop,
+                        illustrator이 사용가능하고 협업에 필요한 git 사용이
+                        가능합니다.
                     </li>
                 </ul>
             </div>
