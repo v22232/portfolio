@@ -13,6 +13,18 @@ $box-width: 100%;
     -webkit-font-smoothing: auto;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    &::-webkit-scrollbar {
+        width: 7px; 
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $black; /*스크롤바의 색상*/
+        border-radius: 20px;        
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent; /*스크롤바 트랙 색상*/
+    }
 
     .layer {
         display: grid;
