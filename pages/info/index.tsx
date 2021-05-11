@@ -16,7 +16,7 @@ const menus: listType[] = [
                         <span>생년월일</span>1990.09.18
                     </li>
                     <li>
-                        <span>주소</span>junggu, Daegu
+                        <span>주소</span>대구 중구
                     </li>
                     <li>
                         <span>E-mail</span>bettykim3771@gmail.com
