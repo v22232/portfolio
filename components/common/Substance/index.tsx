@@ -1,14 +1,23 @@
 import cx from 'classnames';
+import { useRouter } from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
+import Frame from '../Frame';
 import style from './Substance.module.scss';
 
 type Prop = {
     list: listType[];
+    lendering?: boolean;
     heightAuto?: boolean;
+    numberling?: boolean;
 };
 
-export default function Substance({ list, heightAuto }: Prop) {
-    const [lender, setLender] = useState(true);
+export default function Substance({
+    list,
+    lendering,
+    heightAuto,
+    numberling,
+}: Prop) {
+    const [lender, setLender] = useState(false);
 
     const renderListItem = (list: listType, idx: number) => (
         <div
@@ -16,35 +25,53 @@ export default function Substance({ list, heightAuto }: Prop) {
             key={idx}
         >
             <div className={style.number}>
-                <span>0{idx + 1}</span>
+                {numberling && <span>0{idx + 1}</span>}
+                {!numberling && idx === 0 && <span>01</span>}
             </div>
             <div className={style.title}>
-                {list.title}
-                {list.subtitle && <div>{list.subtitle}</div>}
+                {!lender && (
+                    <>
+                        <p className={style.lender__text}></p>
+                        <p className={style.lender__text}></p>
+                        <p className={style.lender__text}></p>
+                    </>
+                )}
+                {lender && (
+                    <>
+                        {list.title}
+                        {list.subtitle && <div>{list.subtitle}</div>}
+                    </>
+                )}
             </div>
             <div className={style.content}>
-                {/* {!lender && (
+                {!lender && (
                     <ul className={style.lender__list}>
                         <li></li>
                         <li></li>
                         <li></li>
                         <li></li>
                     </ul>
-                )} */}
+                )}
                 {lender && list.content}
             </div>
         </div>
     );
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setLender(true);
-    //     }, 1200);
-    // }, []);
+    useEffect(() => {
+        if (lendering) {
+            setTimeout(() => {
+                setLender(true);
+            }, 2000);
+        } else {
+            setLender(true);
+        }
+    }, []);
 
     return <div className={style.Substance}>{list.map(renderListItem)}</div>;
 }
 
 Substance.defaultProps = {
     heightAuto: false,
+    numberling: true,
+    lendering: false,
 };

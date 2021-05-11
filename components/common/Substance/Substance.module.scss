@@ -1,6 +1,9 @@
 @import '../../../styles/_color.scss';
 @import '../../../styles/_common.scss';
 
+$shine-width: 80%;
+$box-width: 100%;
+
 .Substance {
     font-family: 'Noto Sans KR', sans-serif;
     width: calc(100% - 120px);
@@ -28,9 +31,21 @@
 
         &.heightAuto {
             height: auto;
-            margin-top: 100px;
+            margin-top: 70px;
+            .number{
+                margin-top: 60px;
+            }
             + div {
-                margin-bottom: 100px;
+                margin-top: 100px;
+            }
+            @media only screen and (max-width: $tablet) {
+                margin-top: 0px;
+                .number{
+                    margin-top: 0px;
+                }
+                + div {
+                    margin-top: 0px;
+                }
             }
         }
     }
@@ -108,6 +123,39 @@
         }
     }
 
+    .lender__text {
+        position: relative;
+        width: 50%;
+        height: 30px;
+        background-color: #e0d3bd;
+        margin-top: 10px;
+        overflow: hidden;
+
+        &:first-of-type {
+            height: 60px;
+        }
+        &:nth-of-type(2) {
+            width: 80%;
+        }
+        &:nth-of-type(3) {
+            width: 40%;
+        }
+        &::before {
+            @include pseudo;
+            transform: skewX(-45deg);
+            background-image: linear-gradient(
+                90deg,
+                #e0d3bd 0px,
+                #eaddc7 $shine-width/2,
+                #e0d3bd $shine-width
+            );
+            background-repeat: repeat-x;
+            left: -($box-width/2 + $shine-width);
+            width: $shine-width;
+            height: 100%;
+            animation: shine 1s infinite;
+        }
+    }
     .lender__list {
         display: grid;
         gap: 10px 10px;
@@ -116,20 +164,28 @@
             grid-template-columns: 1fr;
         }
         li {
+            position: relative;
             width: 100%;
-            height: 127.45px;
+            height: 157.45px;
             margin-top: 0px !important;
             place-self: start center;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.1);
-            background: gradient(linear,left top,right top,from(#222),to(#222),color-stop(.5,#fff));
-            background-size: 125px 100%;
-            animation-name: shimmer;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            background-repeat: no-repeat;
-            background-position: 0 0;
-            background-color: #222;
+            overflow-x: hidden;
+            background-color: #e0d3bd;
+            &::before {
+                @include pseudo;
+                transform: skewX(-45deg);
+                background-image: linear-gradient(
+                    90deg,
+                    #e0d3bd 0px,
+                    #eaddc7 $shine-width/2,
+                    #e0d3bd $shine-width
+                );
+                background-repeat: repeat-x;
+                left: -($box-width/2 + $shine-width);
+                width: $shine-width;
+                height: 100%;
+                animation: shine 1s infinite;
+            }
         }
     }
 
@@ -202,11 +258,11 @@
     }
 }
 
-@keyframes shimmer {
+@keyframes shine {
     0% {
-      background-position: top left;
+        left: -($box-width/2 + $shine-width);
     }
     100% {
-      background-position: top right;
+        left: 3/2 * $box-width;
     }
-  }
+}

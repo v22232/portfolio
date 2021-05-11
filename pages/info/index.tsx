@@ -13,8 +13,20 @@ const menus: listType[] = [
                         <span>이름</span>김부희
                     </li>
                     <li>
-                        견고한 UI, 기억에 남는 UX, 간결하고 깔끔한 코딩, 협업의
-                        대가
+                        <span>생년월일</span>1990.09.18
+                    </li>
+                    <li>
+                        <span>주소</span>junggu, Daegu
+                    </li>
+                    <li>
+                        <span>E-mail</span>bettykim3771@gmail.com
+                    </li>
+                    <li>
+                        <span>가치관</span>
+                        <b>
+                            견고한 UI, 기억에 남는 UX, 깔끔하고 간결한 코딩,
+                            재사용이 가능한 모듈화
+                        </b>
                     </li>
                 </ul>
             </div>
@@ -22,12 +34,12 @@ const menus: listType[] = [
     },
     {
         title: 'Career',
-        subtitle: <p>5년차 퍼블리셔</p>,
+        subtitle: <p>5년차 퍼블리셔, 프론트엔드</p>,
         content: (
             <div className={style.infoList}>
                 <ul>
                     <li>
-                        <span>웨일소프트</span>퍼블리싱, 프론트앤드
+                        <span>웨일소프트</span>퍼블리싱, 프론트엔드
                         <br />
                         <span>주요사업</span>공공기관(대규모 웹 사이트)
                         <br />
@@ -36,7 +48,7 @@ const menus: listType[] = [
                         <br />
                     </li>
                     <li>
-                        <span>손스소프트</span>퍼블리싱, 프론트앤드, 백앤드
+                        <span>손스소프트</span>퍼블리싱, 프론트엔드, 백엔드
                         <br />
                         <span>주요사업</span>교육 사이트, CMS, LMS
                         <br />
@@ -85,7 +97,7 @@ export default function info() {
             mode={!moveHome ? 'sub' : 'home'}
             onClickMoveHome={_onClickMoveHome}
         >
-            <Substance list={menus} />
+            <Substance list={menus} numberling={false} heightAuto/>
         </Frame>
     );
 }

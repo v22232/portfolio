@@ -64,7 +64,7 @@ export default function Frame({
                     <ul>
                         <li>
                             <button onClick={() => _onClick('/info')}>
-                                01. INTRO{' '}
+                                01. INTRO
                             </button>
                         </li>
                         <li>
