@@ -157,7 +157,7 @@ $box-width: 100%;
         position: relative;
         width: 50%;
         height: 30px;
-        background-color: #e0d3bd;
+        background-color: #d4d4d4;
         margin-top: 10px;
         overflow: hidden;
 
@@ -175,9 +175,9 @@ $box-width: 100%;
             transform: skewX(-45deg);
             background-image: linear-gradient(
                 90deg,
-                #e0d3bd 0px,
-                #eaddc7 $shine-width/2,
-                #e0d3bd $shine-width
+                #e0e0e0 0px,
+                #e9e9e9 $shine-width/2,
+                #e0e0e0 $shine-width
             );
             background-repeat: repeat-x;
             left: -($box-width/2 + $shine-width);
@@ -211,15 +211,15 @@ $box-width: 100%;
             margin-top: 0px !important;
             place-self: start center;
             overflow-x: hidden;
-            background-color: #e0d3bd;
+            background-color: #d4d4d4;
             &::before {
                 @include pseudo;
                 transform: skewX(-45deg);
                 background-image: linear-gradient(
                     90deg,
-                    #e0d3bd 0px,
-                    #eaddc7 $shine-width/2,
-                    #e0d3bd $shine-width
+                    #e0e0e0 0px,
+                    #e9e9e9 $shine-width/2,
+                    #e0e0e0 $shine-width
                 );
                 background-repeat: repeat-x;
                 left: -($box-width/2 + $shine-width);

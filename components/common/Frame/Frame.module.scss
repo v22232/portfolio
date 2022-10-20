@@ -1,7 +1,7 @@
 @import '../../../styles/__color.scss';
 @import '../../../styles/__common.scss';
 
-$pauseSecond: 3s;
+$pauseSecond: 1s;
 $actions: top, date, subject, name, menu;
 
 @mixin ani-top {
@@ -57,41 +57,41 @@ $actions: top, date, subject, name, menu;
     &.mode__sub {
         max-width: 100%;
         .part__contents {
-            &::before {
-                @include pseudo;
-                left: 2px;
-                top: 2px;
-                width: 100%;
-                height: 30px;
-                background: linear-gradient(
-                    to top,
-                    rgba(199, 187, 168, 0) 10%,
-                    rgba(199, 187, 168, 0.25) 25%,
-                    rgba(199, 187, 168, 0.5) 50%,
-                    rgba(199, 187, 168, 0.75) 75%,
-                    rgba(199, 187, 168, 1) 100%
-                );
-                background-size: cover;
-                z-index: 91;
-            }
-            &::after {
-                @include pseudo;
-                top: auto;
-                left: 2px;
-                bottom: 2px;
-                width: 100%;
-                height: 30px;
-                background: linear-gradient(
-                    to bottom,
-                    rgba(199, 187, 168, 0) 10%,
-                    rgba(199, 187, 168, 0.25) 25%,
-                    rgba(199, 187, 168, 0.5) 50%,
-                    rgba(199, 187, 168, 0.75) 75%,
-                    rgba(199, 187, 168, 1) 100%
-                );
-                background-size: cover;
-                z-index: 1;
-            }
+            // &::before {
+            //     @include pseudo;
+            //     left: 2px;
+            //     top: 2px;
+            //     width: 100%;
+            //     height: 30px;
+            //     background: linear-gradient(
+            //         to top,
+            //         rgba(199, 187, 168, 0) 10%,
+            //         rgba(199, 187, 168, 0.25) 25%,
+            //         rgba(199, 187, 168, 0.5) 50%,
+            //         rgba(199, 187, 168, 0.75) 75%,
+            //         rgba(199, 187, 168, 1) 100%
+            //     );
+            //     background-size: cover;
+            //     z-index: 91;
+            // }
+            // &::after {
+            //     @include pseudo;
+            //     top: auto;
+            //     left: 2px;
+            //     bottom: 2px;
+            //     width: 100%;
+            //     height: 30px;
+            //     background: linear-gradient(
+            //         to bottom,
+            //         rgba(199, 187, 168, 0) 10%,
+            //         rgba(199, 187, 168, 0.25) 25%,
+            //         rgba(199, 187, 168, 0.5) 50%,
+            //         rgba(199, 187, 168, 0.75) 75%,
+            //         rgba(199, 187, 168, 1) 100%
+            //     );
+            //     background-size: cover;
+            //     z-index: 1;
+            // }
         }
     }
     &::before {
@@ -218,7 +218,7 @@ $actions: top, date, subject, name, menu;
     &.mode__main {
         @media only screen and (min-width: $tablet) {
             &::before {
-                animation: line 3s 4.5s cubic-bezier(0, 0, 0, 0) forwards;
+                animation: line 3s 2.5s cubic-bezier(0, 0, 0, 0) forwards;
             }
             .part__top {
                 animation: top 2s $pauseSecond ease forwards;
@@ -228,11 +228,11 @@ $actions: top, date, subject, name, menu;
             }
             .part__left {
                 animation: left-1 2s $pauseSecond ease forwards,
-                    rotate-90 0.5s 5.68s ease forwards;
+                    rotate-90 0.5s 3.55s ease forwards;
 
                 & + .part__left {
                     animation: left-2 2s $pauseSecond ease forwards,
-                        rotate-90 0.5s 6s ease forwards;
+                        rotate-90 0.5s 4s ease forwards;
                 }
             }
         }
