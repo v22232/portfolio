@@ -77,7 +77,7 @@ export default function Frame({
             )}
 
             <span className={cx([style.part__left, style.part__date])}>
-                2017 TO 2021
+                2017 TO 2022
             </span>
             <span className={cx([style.part__left, style.part__subject])}>
                 PUBLISHER
