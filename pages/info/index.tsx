@@ -52,7 +52,7 @@ const menus: listType[] = [
                         <br />
                         <span>주요사업</span>교육 사이트, CMS, LMS
                         <br />
-                        <span>재직날짜</span>2019. 12 ~ 재직중
+                        <span>재직날짜</span>2019. 12 ~ 2020.10
                     </li>
                 </ul>
             </div>
