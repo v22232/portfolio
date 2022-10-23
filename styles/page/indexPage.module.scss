@@ -26,12 +26,12 @@ $actions: top, date, subject, name, menu;
 
     li:first-of-type {
         @media only screen and (min-width: $tablet) {
-            animation: menu 0.5s 8s ease forwards;
+            animation: menu 0.5s 5.1s ease forwards;
         }
     }
     li:nth-of-type(2) {
         @media only screen and (min-width: $tablet) {
-            animation: menu 0.5s 8.3s ease forwards;
+            animation: menu 0.5s 5.6s ease forwards;
         }
     }
 
